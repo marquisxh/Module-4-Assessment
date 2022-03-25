@@ -5,6 +5,18 @@
   </head>
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
+    <button id="weatherButton">Today's Weather</button>
+    <br><br><br><br>
+    <form>
+      <input type="text" id="mood" name="Enter your mood here"><br>Enter your mood here: <br> <br>
+    <button id="moodButton">Submit mood</button>
+    </form>
+    <br>
+    <form>
+      <input type="text" id="mood" name="Enter your cartoon here"><br>Enter your favorite cartoon here: <br> <br>
+    <button id="cartoonButton">Submit cartoon</button>
+    </form>
+  
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
@@ -15,6 +27,32 @@
               alert(data);
             });
       };
+
+      document.getElementById("weatherButton").onclick = function () {
+        axios.get("http://localhost:4000/api/weather/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+
+      document.getElementById("moodButton").onclick = function () {
+        axios.get("http://localhost:4000/api/mood/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+
+      document.getElementById("cartoonButton").onclick = function () {
+        axios.get("http://localhost:4000/api/cartoon/")
+            .then(function (response) {
+              const data = response.data;
+              alert(data);
+            });
+      };
+
+
     </script>
   </body>
 </html>
